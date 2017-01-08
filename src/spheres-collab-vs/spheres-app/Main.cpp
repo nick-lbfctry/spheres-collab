@@ -1,20 +1,12 @@
+#include <gl/glew.h>
 #include <gl/freeglut.h>
+#include "Core\Display\InitWindow.h"
+#include "Core\Model\Primitive.h"
 
-void init();
 void display(void);
-void centerOnScreen();
 void drawObject();
 
-//  define the window position on screen
-int window_x;
-int window_y;
-
-//  variables representing the window size
-int window_width = 480;
-int window_height = 480;
-
-//  variable representing the window title
-char *window_title = "Sample OpenGL FreeGlut App";
+Core::Primitive::Triangle triangle;
 
 //-------------------------------------------------------------------------
 //  Program Main method.
@@ -25,14 +17,13 @@ void main(int argc, char **argv)
 	//  with the specified dimensions and position
 	//  + set the display mode + specify the window title.
 	glutInit(&argc, argv);
-	centerOnScreen();
-	glutInitWindowSize(window_width, window_height);
-	glutInitWindowPosition(window_x, window_y);
-	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
-	glutCreateWindow(window_title);
+
+	Core::Display::InitWindow("Sample OpenGL FreeGlut App");
 
 	//  Set OpenGL program initial state.
-	init();
+	//  Set the frame buffer clear color to black. 
+	glClearColor(0.0, 0.0, 0.0, 0.0);
+	triangle.Init();
 
 	// Set the callback functions
 	glutDisplayFunc(display);
@@ -41,14 +32,6 @@ void main(int argc, char **argv)
 	glutMainLoop();
 }
 
-//-------------------------------------------------------------------------
-//  Set OpenGL program initial state.
-//-------------------------------------------------------------------------
-void init()
-{
-	//  Set the frame buffer clear color to black. 
-	glClearColor(0.0, 0.0, 0.0, 0.0);
-}
 
 //-------------------------------------------------------------------------
 //  This function is passed to glutDisplayFunc in order to display 
@@ -74,15 +57,6 @@ void display(void)
 void drawObject()
 {
 	//  Draw Icosahedron
-	glutWireIcosahedron();
-}
-
-//-------------------------------------------------------------------------
-//  This function sets the window x and y coordinates
-//  such that the window becomes centered
-//-------------------------------------------------------------------------
-void centerOnScreen()
-{
-	window_x = (glutGet(GLUT_SCREEN_WIDTH) - window_width) / 2;
-	window_y = (glutGet(GLUT_SCREEN_HEIGHT) - window_height) / 2;
+	//glutWireIcosahedron();
+	triangle.Render();
 }

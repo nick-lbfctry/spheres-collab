@@ -1,20 +1,9 @@
-#include "Primitive.h"
+#include "Triangle.h"
 
-using namespace Core::Primitive;
+using namespace Core::Model;
 
 Triangle::Triangle()
-{
-	
-}
-
-Triangle::~Triangle()
-{
-	// properly deallocate buffers
-	glDeleteVertexArrays(1, &VAO);
-	glDeleteBuffers(1, &VBO);
-}
-
-void Triangle::Init()
+	: ModelBase()
 {
 	// build and compile our shaders
 	shader.Load("Shaders\\basicShader.vert", "Shaders\\basicShader.frag");
@@ -31,7 +20,7 @@ void Triangle::Init()
 	glGenBuffers(1, &VBO); // generate a single buffer object
 	glGenVertexArrays(1, &VAO); // generate a single vertex array object
 
-								//=== triangle
+	//=== triangle
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO); // vertex buffer uses array buffer type
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW); // copy our vertices into the buffer
@@ -44,8 +33,21 @@ void Triangle::Init()
 	glBindVertexArray(0);
 }
 
+Triangle::~Triangle()
+{
+	// properly deallocate buffers
+	glDeleteVertexArrays(1, &VAO);
+	glDeleteBuffers(1, &VBO);
+}
+
+void Triangle::Init()
+{
+	
+}
+
 void Triangle::Render()
 {
+	std::cout << "drawing triangle..." << std::endl;
 	shader.Use();
 	glBindVertexArray(this->VAO);
 	glDrawArrays(GL_TRIANGLES, 0, 6);

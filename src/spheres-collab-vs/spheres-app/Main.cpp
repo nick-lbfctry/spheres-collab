@@ -1,12 +1,10 @@
 #include <gl/glew.h>
 #include <gl/freeglut.h>
-#include "Core\Display\InitWindow.h"
-#include "Core\Model\Primitive.h"
+#include "Core\GameState.h"
 
 void display(void);
-void drawObject();
 
-Core::Primitive::Triangle triangle;
+Core::GameState gameState;
 
 //-------------------------------------------------------------------------
 //  Program Main method.
@@ -17,13 +15,7 @@ void main(int argc, char **argv)
 	//  with the specified dimensions and position
 	//  + set the display mode + specify the window title.
 	glutInit(&argc, argv);
-
-	Core::Display::InitWindow("Sample OpenGL FreeGlut App");
-
-	//  Set OpenGL program initial state.
-	//  Set the frame buffer clear color to black. 
-	glClearColor(0.0, 0.0, 0.0, 0.0);
-	triangle.Init();
+	gameState.Init();
 
 	// Set the callback functions
 	glutDisplayFunc(display);
@@ -45,18 +37,8 @@ void display(void)
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	//  Draw object
-	drawObject();
+	gameState.Render();	
 
 	//  Swap contents of backward and forward frame buffers
 	glutSwapBuffers();
-}
-
-//-------------------------------------------------------------------------
-//  Draws our object.
-//-------------------------------------------------------------------------
-void drawObject()
-{
-	//  Draw Icosahedron
-	//glutWireIcosahedron();
-	triangle.Render();
 }

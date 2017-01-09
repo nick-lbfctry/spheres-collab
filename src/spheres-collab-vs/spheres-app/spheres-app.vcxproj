@@ -145,16 +145,24 @@
     <None Include="packages.config" />
     <None Include="Shaders\basicShader.frag" />
     <None Include="Shaders\basicShader.vert" />
+    <None Include="Shaders\SimpleShader.frag" />
+    <None Include="Shaders\SimpleShader.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Display\InitWindow.cpp" />
-    <ClCompile Include="Core\Model\Primitive.cpp" />
+    <ClCompile Include="Core\GameState.cpp" />
+    <ClCompile Include="Core\Model\ModelBase.cpp" />
+    <ClCompile Include="Core\Model\SimpleModel.cpp" />
+    <ClCompile Include="Core\Model\Triangle.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Managers\ShaderManager\ShaderManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Display\InitWindow.h" />
-    <ClInclude Include="Core\Model\Primitive.h" />
+    <ClInclude Include="Core\GameState.h" />
+    <ClInclude Include="Core\Model\ModelBase.h" />
+    <ClInclude Include="Core\Model\SimpleModel.h" />
+    <ClInclude Include="Core\Model\Triangle.h" />
     <ClInclude Include="Managers\ShaderManager\ShaderManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

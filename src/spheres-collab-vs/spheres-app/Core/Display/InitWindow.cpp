@@ -1,9 +1,9 @@
 #include "InitWindow.h"
 
-bool Core::Display::InitWindow(char* windowTitle)
+bool Core::Display::InitWindow(char* windowTitle, int width, int height)
 {
-	int window_width = 480;
-	int window_height = 480;
+	int window_width = width;
+	int window_height = height;
 
 	// center screen
 	int window_x = (glutGet(GLUT_SCREEN_WIDTH) - window_width) / 2;

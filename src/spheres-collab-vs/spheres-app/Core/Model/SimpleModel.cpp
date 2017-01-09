@@ -6,11 +6,7 @@ Core::Model::SimpleModel::SimpleModel(std::vector<GLfloat> vertices, const GLcha
 	std::cout << "SimpleModel::()" << std::endl;
 	// build and compile our shaders
 	this->shader.Load(vertexPath, fragmentPath);
-	GLfloat tvertices[] = {
-		-0.5f, -0.5f, 0.0f,
-		0.5f, -0.5f, 0.0f,
-		0.0f,  0.5f, 0.0f
-	};
+
 	// create buffers
 	glGenBuffers(1, &this->VBO); // generate a single buffer object
 	glGenVertexArrays(1, &this->VAO); // generate a single vertex array object

@@ -8,6 +8,6 @@ namespace Core
 {
 	namespace Display
 	{
-		bool InitWindow(char* windowTitle);
+		bool InitWindow(char* windowTitle, int width, int height);
 	}
 }

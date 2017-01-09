@@ -18,6 +18,8 @@
     <None Include="packages.config" />
     <None Include="Shaders\basicShader.frag" />
     <None Include="Shaders\basicShader.vert" />
+    <None Include="Shaders\SimpleShader.frag" />
+    <None Include="Shaders\SimpleShader.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -29,7 +31,16 @@
     <ClCompile Include="Managers\ShaderManager\ShaderManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Model\Primitive.cpp">
+    <ClCompile Include="Core\Model\SimpleModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\GameState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Model\ModelBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Model\Triangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -40,7 +51,16 @@
     <ClInclude Include="Managers\ShaderManager\ShaderManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Model\Primitive.h">
+    <ClInclude Include="Core\Model\SimpleModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\GameState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Model\ModelBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Model\Triangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
